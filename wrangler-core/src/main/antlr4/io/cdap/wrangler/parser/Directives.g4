@@ -140,8 +140,7 @@ numberRange
  ;
 
 value
- : String | Number | Column | Bool
- ;
+ : String | Number | Column | Bool | BYTE_SIZE | TIME_DURATION;
 
 ecommand
  : '!' Identifier
@@ -311,3 +310,30 @@ fragment Int
 fragment Digit
  : [0-9]
  ;
+ 
+
+// Byte Size (e.g., 10MB, 512KB)
+BYTE_SIZE
+  : Int BYTE_UNIT
+  ;
+
+// Time Duration (e.g., 5s, 10min, 1h)
+TIME_DURATION
+  : Int TIME_UNIT
+  ;
+
+// Byte Units
+fragment BYTE_UNIT
+  : [kK][bB]     // KB
+  | [mM][bB]     // MB
+  | [gG][bB]     // GB
+  | [tT][bB]     // TB
+  ;
+
+// Time Units
+fragment TIME_UNIT
+  : [sS]         // seconds
+  | [mM][sS]?    // minutes (m or ms)
+  | [hH]         // hours
+  | [dD]         // days
+  ;

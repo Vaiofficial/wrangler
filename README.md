@@ -175,6 +175,19 @@ rates below are specified as *records/second*.
 | High (167 Directives) |      426      | 127,946,398 |  82,677,845,324 | 106,367.27 |
 | High (167 Directives) |      426      | 511,785,592 | 330,711,381,296 | 105,768.93 |
 
+### New Units Support
+
+Wrangler now supports:
+
+- **Byte Sizes**: `10KB`, `1.5MB`, `2GB`
+- **Time Durations**: `200ms`, `2s`, `1.5min`
+
+### New Directive: `aggregate-stats`
+
+```wrangler
+aggregate-stats :size_column :time_column total_size_mb total_time_sec
+
+
 
 ## Contact
 
